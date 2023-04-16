@@ -1,5 +1,6 @@
 const form = document.querySelector("form");
 const tableBody = document.querySelector("tbody");
+const APIUserBtn = document.getElementById("APIUser");
 
 const users = [
   {
@@ -74,6 +75,19 @@ function refreshTable() {
   }
 }
 
+async function fetchUser() {
+  const response = await fetch("https://random-data-api.com/api/v2/users");
+  const userData = await response.json();
+  let APIUser = {
+    ...userData,
+    phone: userData.phone_number,
+    city: userData.address.city,
+    state: userData.address.state,
+  };
+  addUser(APIUser);
+  refreshTable();
+}
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -93,5 +107,7 @@ form.addEventListener("submit", function (event) {
   addUser(user);
   form.reset();
 });
+
+APIUserBtn.addEventListener("click", fetchUser);
 
 refreshTable();
