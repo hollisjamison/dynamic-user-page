@@ -2,23 +2,30 @@ const form = document.querySelector("form");
 const tableBody = document.querySelector("tbody");
 const APIUserBtn = document.getElementById("APIUser");
 
-const users = [
-  {
-    id: "1",
-    first_name: "Hollis",
-    last_name: "Jamison",
-    username: "hollis_jamison",
-    social_insurance_number: "555-22-2211",
-    phone: "706271271",
-    gender: "male",
-    city: "Jacksonville",
-    state: "FL",
-    avatar: "https://robohash.org/optiosuscipitperferendis.png",
-  },
-];
+let users = JSON.parse(localStorage.getItem("users"));
+
+if (!users) {
+  users = [
+    {
+      id: "1",
+      first_name: "Hollis",
+      last_name: "Jamison",
+      username: "hollis_jamison",
+      social_insurance_number: "555-22-2211",
+      phone: "706271271",
+      gender: "male",
+      city: "Jacksonville",
+      state: "FL",
+      avatar: "https://robohash.org/optiosuscipitperferendis.png",
+    },
+  ];
+
+  localStorage.setItem("users", JSON.stringify(users));
+}
 
 function addUser(user) {
   users.push(user);
+  localStorage.setItem("users", JSON.stringify(users));
   refreshTable();
 }
 
@@ -85,7 +92,6 @@ async function fetchUser() {
     state: userData.address.state,
   };
   addUser(APIUser);
-  refreshTable();
 }
 
 form.addEventListener("submit", function (event) {
@@ -93,10 +99,10 @@ form.addEventListener("submit", function (event) {
 
   const user = {
     id: form.elements.id.value,
-    firstName: form.elements.first_name.value,
-    lastName: form.elements.last_name.value,
+    first_name: form.elements.first_name.value,
+    last_name: form.elements.last_name.value,
     username: form.elements.username.value,
-    sin: form.elements.social_insurance_number.value,
+    social_insurance_number: form.elements.social_insurance_number.value,
     phone: form.elements.phone.value,
     gender: form.elements.gender.value,
     city: form.elements.city.value,
