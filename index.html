@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/style.css"></link>
+    <title>User Information</title>
+  </head>
+  <body>
+    <h1>User Information</h1>
+    <form>
+      <container>
+        <label for="id-input">ID:</label>
+        <input type="text" id="id-input" name="id" required /><br />
+  
+        <label for="first-name-input">First Name:</label>
+        <input
+          type="text"
+          id="first-name-input"
+          name="firstName"
+          required
+        /><br />
+  
+        <label for="last-name-input">Last Name:</label>
+        <input type="text" id="last-name-input" name="lastName" required /><br />
+  
+        <label for="username-input">Username:</label>
+        <input type="text" id="username-input" name="username" required /><br />
+  
+        <label for="social-insurance-input">Social Insurance Number:</label>
+        <input
+          type="text"
+          id="social-insurance-input"
+          name="socialInsurance"
+          required
+        /><br />
+      </container>
+      <container>
+        <label for="phone-input">Phone Number:</label>
+        <input type="tel" id="phone-input" name="phone" required /><br />
+
+        <label for="gender-input">Gender:</label>
+        <select id="gender-input" name="gender" required>
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option></select
+        ><br />
+
+        <label for="city-input">City:</label>
+        <input type="text" id="city-input" name="city" required /><br />
+
+        <label for="state-input">State:</label>
+        <input type="text" id="state-input" name="state" required /><br />
+
+        <label for="avatar-input">Avatar:</label>
+        <input type="url" id="avatar-input" name="avatar" required /><br />
+      </container>
+      <container>
+        <button type="submit">Submit</button>
+      </container>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+          <th>Social Insurance Number</th>
+          <th>Phone Number</th>
+          <th>Gender</th>
+          <th>City</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="src/script.js"></script>
+  </body>
+</html>
