@@ -1,3 +1,6 @@
+const form = document.querySelector("form");
+const tableBody = document.querySelector("tbody");
+
 const users = [
   {
     id: "1",
@@ -12,3 +15,83 @@ const users = [
     avatar: "https://robohash.org/optiosuscipitperferendis.png",
   },
 ];
+
+function addUser(user) {
+  users.push(user);
+  refreshTable();
+}
+
+function refreshTable() {
+  tableBody.innerHTML = "";
+
+  for (let i = 0; i < users.length; i++) {
+    let user = users[i];
+    const row = document.createElement("tr");
+
+    const avatarCell = document.createElement("td");
+    const avatarImg = document.createElement("img");
+    avatarImg.src = user.avatar;
+    avatarCell.appendChild(avatarImg);
+    row.appendChild(avatarCell);
+
+    const idCell = document.createElement("td");
+    idCell.textContent = user.id;
+    row.appendChild(idCell);
+
+    const firstNameCell = document.createElement("td");
+    firstNameCell.textContent = user.firstName;
+    row.appendChild(firstNameCell);
+
+    const lastNameCell = document.createElement("td");
+    lastNameCell.textContent = user.lastName;
+    row.appendChild(lastNameCell);
+
+    const usernameCell = document.createElement("td");
+    usernameCell.textContent = user.username;
+    row.appendChild(usernameCell);
+
+    const sinCell = document.createElement("td");
+    sinCell.textContent = user.sin;
+    row.appendChild(sinCell);
+
+    const phoneCell = document.createElement("td");
+    phoneCell.textContent = user.phone;
+    row.appendChild(phoneCell);
+
+    const genderCell = document.createElement("td");
+    genderCell.textContent = user.gender;
+    row.appendChild(genderCell);
+
+    const cityCell = document.createElement("td");
+    cityCell.textContent = user.city;
+    row.appendChild(cityCell);
+
+    const stateCell = document.createElement("td");
+    stateCell.textContent = user.state;
+    row.appendChild(stateCell);
+
+    tableBody.appendChild(row);
+  }
+}
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const user = {
+    id: form.elements.id.value,
+    firstName: form.elements.firstName.value,
+    lastName: form.elements.lastName.value,
+    username: form.elements.username.value,
+    sin: form.elements.socialInsurance.value,
+    phone: form.elements.phone.value,
+    gender: form.elements.gender.value,
+    city: form.elements.city.value,
+    state: form.elements.state.value,
+    avatar: form.elements.avatar.value,
+  };
+
+  addUser(user);
+  form.reset();
+});
+
+refreshTable();
