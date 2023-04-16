@@ -1,6 +1,7 @@
 const form = document.querySelector("form");
 const tableBody = document.querySelector("tbody");
 const APIUserBtn = document.getElementById("APIUser");
+const clearBtn = document.getElementById("clear")
 
 let users = JSON.parse(localStorage.getItem("users"));
 
@@ -94,6 +95,11 @@ async function fetchUser() {
   addUser(APIUser);
 }
 
+function clearUsers() {
+  localStorage.removeItem("users")
+  window.location.reload()
+}
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -115,5 +121,6 @@ form.addEventListener("submit", function (event) {
 });
 
 APIUserBtn.addEventListener("click", fetchUser);
+clearBtn.addEventListener("click", clearUsers);
 
 refreshTable();
