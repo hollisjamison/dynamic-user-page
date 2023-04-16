@@ -39,11 +39,11 @@ function refreshTable() {
     row.appendChild(idCell);
 
     const firstNameCell = document.createElement("td");
-    firstNameCell.textContent = user.firstName;
+    firstNameCell.textContent = user.first_name;
     row.appendChild(firstNameCell);
 
     const lastNameCell = document.createElement("td");
-    lastNameCell.textContent = user.lastName;
+    lastNameCell.textContent = user.last_name;
     row.appendChild(lastNameCell);
 
     const usernameCell = document.createElement("td");
@@ -51,7 +51,7 @@ function refreshTable() {
     row.appendChild(usernameCell);
 
     const sinCell = document.createElement("td");
-    sinCell.textContent = user.sin;
+    sinCell.textContent = user.social_insurance_number;
     row.appendChild(sinCell);
 
     const phoneCell = document.createElement("td");
@@ -79,10 +79,10 @@ form.addEventListener("submit", function (event) {
 
   const user = {
     id: form.elements.id.value,
-    firstName: form.elements.firstName.value,
-    lastName: form.elements.lastName.value,
+    firstName: form.elements.first_name.value,
+    lastName: form.elements.last_name.value,
     username: form.elements.username.value,
-    sin: form.elements.socialInsurance.value,
+    sin: form.elements.social_insurance_number.value,
     phone: form.elements.phone.value,
     gender: form.elements.gender.value,
     city: form.elements.city.value,
