@@ -79,10 +79,10 @@ form.addEventListener("submit", function (event) {
 
   const user = {
     id: form.elements.id.value,
-    firstName: form.elements.first_name.value,
-    lastName: form.elements.last_name.value,
+    first_name: form.elements.first_name.value,
+    last_name: form.elements.last_name.value,
     username: form.elements.username.value,
-    sin: form.elements.social_insurance_number.value,
+    social_insurance_number: form.elements.social_insurance_number.value,
     phone: form.elements.phone.value,
     gender: form.elements.gender.value,
     city: form.elements.city.value,
